@@ -81,35 +81,18 @@ class Dot extends React.Component<IPropsDot, IStateDot> {
                 );
         }
 
-
-        const opacity = this.state.animVal.interpolate({
-            inputRange: [ 0, 1 ],
-            outputRange: [ prevType.opacity, type.opacity ]
-        });
-
-        const size = this.state.animVal.interpolate({
-            inputRange: [ 0, 1 ],
-            outputRange: [ prevType.size * sizeRatio, type.size * sizeRatio ]
-        });
-
-        const borderRadius = this.state.animVal.interpolate({
-            inputRange: [ 0, 1 ],
-            outputRange: [ prevType.size * sizeRatio * 0.5, type.size * sizeRatio * 0.5 ]
-        });
-
         const {activeColor} = this.props;
 
 
         return (
             <Animated.View
                 style={ [ {
-                    backgroundColor: activeColor,
-                    margin: 3 * sizeRatio,
+                    backgroundColor: curPage !== idx ? '#CBCBD5' : activeColor,
+                    margin: 1 * sizeRatio,
                 }, {
-                    width: size,
-                    height: size,
-                    borderRadius: borderRadius,
-                    opacity: opacity,
+                    width: 15,
+                    height: 2,
+                    opacity: 1,
                 } ] } />
         )
     }

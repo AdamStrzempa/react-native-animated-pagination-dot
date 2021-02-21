@@ -83,9 +83,6 @@ class DotContainer extends React.Component<IDotContainerProps>{
                     ref={(ref)=>{
                         this.refScrollView = ref;
                     }}
-                    contentContainerStyle={ {
-                        alignItems: 'center',
-                    } }
                     bounces={ false }
                     horizontal={ !this.props.vertical }
                     scrollEnabled={ false }
@@ -127,7 +124,7 @@ class DotContainer extends React.Component<IDotContainerProps>{
         const FIRST_EMPTY_DOT_SPACE = ONE_EMPTY_DOT_SIZE * 2;
         const MOVE_DISTANCE = ONE_EMPTY_DOT_SIZE * sizeRatio;
 
-        const moveTo = Math.max(0, FIRST_EMPTY_DOT_SPACE + ( index - 4 ) * MOVE_DISTANCE);
+        const moveTo = Math.max(0, FIRST_EMPTY_DOT_SPACE + ( index ) * MOVE_DISTANCE);
 
         if ( this.props.vertical ){
             this.refScrollView.scrollTo({
@@ -158,10 +155,9 @@ class DotContainer extends React.Component<IDotContainerProps>{
         const containerSize = 84 * sizeRatio;
 
         return {
-            alignItems : 'center',
             flexDirection : vertical ? 'column' : 'row',
-            maxHeight : vertical ? containerSize : undefined,
-            maxWidth : vertical ? undefined : containerSize
+            maxHeight : 5,
+            maxWidth : 100,
         }
 
     }
