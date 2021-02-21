@@ -32,7 +32,7 @@ class DotContainer extends React.Component<IDotContainerProps>{
     }
 
     componentDidUpdate (prevProps){
-        if (this.props.maxPage > 4 && prevProps.curPage !== this.props.curPage)
+        if (this.props.maxPage > 2 && prevProps.curPage !== this.props.curPage)
             this.scrollTo(this.props.curPage)
     }
 
@@ -53,7 +53,7 @@ class DotContainer extends React.Component<IDotContainerProps>{
 
         const container = this.getContainerStyle();
 
-        if (maxPage < 5) {
+        if (maxPage < 2) {
             return (
                 <View style={ container }>
                     { list.map(i => {
