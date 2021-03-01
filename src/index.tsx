@@ -36,10 +36,27 @@ class DotContainer extends React.Component<IDotContainerProps>{
             this.scrollTo(this.props.curPage)
     }
 
+    
+
     render () {
         const { curPage, maxPage, activeDotColor } = this.props;
         const list = [ ...Array(maxPage).keys() ];
 
+        const emptyDotFooter = () => {
+            switch (this.props.maxPage) {
+                case 3:
+                case 2:
+                case 1:
+                    return null
+                    break;
+                default:
+                    return <>
+                        <EmptyDot sizeRatio={this.props.sizeRatio} />
+                        <EmptyDot sizeRatio={this.props.sizeRatio} />
+                    </>
+                    break;
+            }
+        }
 
         let normalizedPage = curPage;
         if(curPage < 0){
@@ -71,7 +88,6 @@ class DotContainer extends React.Component<IDotContainerProps>{
                 </View>
             )
         }
-
 
         return (
             <View style={ container }
@@ -108,8 +124,7 @@ class DotContainer extends React.Component<IDotContainerProps>{
                     }) }
 
                     {/* previous empty dummy dot */}
-                    <EmptyDot sizeRatio={sizeRatio} />
-                    <EmptyDot sizeRatio={sizeRatio} />
+                    {emptyDotFooter()}  
 
                 </ScrollView>
             </View>
