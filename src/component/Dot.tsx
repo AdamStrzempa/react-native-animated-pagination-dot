@@ -68,13 +68,13 @@ class Dot extends React.Component<IPropsDot, IStateDot> {
         const { idx, curPage, sizeRatio } = this.props;
         const { prevType, type } = this.state;
 
-        if (curPage < 3) {
+        if (curPage < 2) {
             if (idx >= 5)
                 return (
                     <EmptyDot sizeRatio={sizeRatio} />
                 );
 
-        } else if (curPage < 4) {
+        } else if (curPage < 3) {
             if (idx > 5)
                 return (
                     <EmptyDot sizeRatio={sizeRatio} />
